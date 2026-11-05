@@ -20,12 +20,12 @@
             text-transform: uppercase;
         }
         
-        /* Layout Grid: 1 column on mobile, 2 massive columns on large monitors */
+        /* Layout Grid: 1 column on mobile, 2 massive rows on desktop screens */
         .cam-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 40px;
-            max-width: 1700px;
+            max-width: 1700px; /* Gives the feeds maximum width across your monitor */
             margin: 0 auto 60px auto;
         }
         @media (min-width: 1024px) {
@@ -50,20 +50,21 @@
             border-bottom: 1px solid #2d2d2d;
         }
         
-        /* Perfect widescreen aspect ratio layout viewport */
+        /* Perfect widescreen aspect ratio math */
         .video-container {
             position: relative;
             width: 100%;
             padding-bottom: 56.25%; /* 16:9 Ratio */
             height: 0;
-            background: #252525;
+            background: #000;
         }
-        .video-container canvas {
+        .video-container iframe {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            border: 0;
         }
     </style>
 </head>
@@ -72,115 +73,86 @@
     <h1>Mountain Live Cams</h1>
 
     <div class="cam-grid">
-        <!-- Card 1 -->
+        <!-- Feed 1 -->
         <div class="cam-card">
             <div class="cam-title">June Patrol</div>
             <div class="video-container">
-                <canvas class="placeholder-view"></canvas>
+                <iframe src="https://youtube.com" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
 
-        <!-- Card 2 -->
+        <!-- Feed 2 -->
         <div class="cam-card">
             <div class="cam-title">Main Lodge Woolly Cam</div>
             <div class="video-container">
-                <canvas class="placeholder-view"></canvas>
+                <iframe src="https://youtube.com" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
 
-        <!-- Card 3 -->
+        <!-- Feed 3 -->
         <div class="cam-card">
             <div class="cam-title">Woolly's Adventure Summit</div>
             <div class="video-container">
-                <canvas class="placeholder-view"></canvas>
+                <iframe src="https://youtube.com" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
 
-        <!-- Card 4 -->
+        <!-- Feed 4 -->
         <div class="cam-card">
             <div class="cam-title">McCoy Station</div>
             <div class="video-container">
-                <canvas class="placeholder-view"></canvas>
+                <iframe src="https://youtube.com" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
 
-        <!-- Card 5 -->
+        <!-- Feed 5 -->
         <div class="cam-card">
             <div class="cam-title">Chair 14 Outpost</div>
             <div class="video-container">
-                <canvas class="placeholder-view"></canvas>
+                <iframe src="https://youtube.com" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
 
-        <!-- Card 6 -->
+        <!-- Feed 6 -->
         <div class="cam-card">
             <div class="cam-title">Summit</div>
             <div class="video-container">
-                <canvas class="placeholder-view"></canvas>
+                <iframe src="https://youtube.com" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
 
-        <!-- Card 7 -->
+        <!-- Feed 7 -->
         <div class="cam-card">
             <div class="cam-title">Eagle Lodge</div>
             <div class="video-container">
-                <canvas class="placeholder-view"></canvas>
+                <iframe src="https://youtube.com" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
 
-        <!-- Card 8 -->
+        <!-- Feed 8 -->
         <div class="cam-card">
             <div class="cam-title">Tamarack</div>
             <div class="video-container">
-                <canvas class="placeholder-view"></canvas>
+                <iframe src="https://youtube.com" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
 
-        <!-- Card 9 -->
+        <!-- Feed 9 -->
         <div class="cam-card">
             <div class="cam-title">The Village</div>
             <div class="video-container">
-                <canvas class="placeholder-view"></canvas>
+                <iframe src="https://youtube.com" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
 
-        <!-- Card 10 -->
+        <!-- Feed 10 -->
         <div class="cam-card">
             <div class="cam-title">Canyon Lodge</div>
             <div class="video-container">
-                <canvas class="placeholder-view"></canvas>
+                <iframe src="https://youtube.com" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
     </div>
-
-    <script>
-        // Native rendering engine
-        // Generates crisp geometric design grids directly inside the browser window
-        document.querySelectorAll('.placeholder-view').forEach((canvas, index) => {
-            canvas.width = 640;
-            canvas.height = 360;
-            const ctx = canvas.getContext('2d');
-            
-            // Draw clean background block
-            ctx.fillStyle = '#1f2937';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            
-            // Render design framework details
-            ctx.strokeStyle = '#374151';
-            ctx.lineWidth = 2;
-            ctx.beginPath();
-            ctx.moveTo(0, 0); ctx.lineTo(canvas.width, canvas.height);
-            ctx.moveTo(canvas.width, 0); ctx.lineTo(0, canvas.height);
-            ctx.stroke();
-            
-            // Add view indicator text
-            ctx.fillStyle = '#9ca3af';
-            ctx.font = 'bold 24px sans-serif';
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
-            ctx.fillText('CAM FEED VIEWPORT ' + (index + 1), canvas.width / 2, canvas.height / 2);
-        });
-    </script>
 
 </body>
 </html>
