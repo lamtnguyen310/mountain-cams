@@ -56,7 +56,7 @@
             border-bottom: 1px solid #2d2d2d;
         }
         
-        /* 16:9 Aspect Ratio Frame Container */
+        /* Perfect 16:9 Aspect Ratio Frame Container */
         .video-container {
             position: relative;
             width: 100%;
@@ -78,14 +78,14 @@
 <body>
 
     <h1>Mountain Live Cams</h1>
-    <div class="subtitle">Feeds automatically update every 15 seconds</div>
+    <div class="subtitle">Feeds automatically update every 30 seconds</div>
 
     <div class="cam-grid">
         <!-- Feed 1 -->
         <div class="cam-card">
             <div class="cam-title">June Patrol</div>
             <div class="video-container">
-                <img class="live-cam" src="https://picsum.photos" alt="June Patrol">
+                <img class="live-cam" src="https://youtube.com" alt="June Patrol">
             </div>
         </div>
 
@@ -93,7 +93,7 @@
         <div class="cam-card">
             <div class="cam-title">Main Lodge Woolly Cam</div>
             <div class="video-container">
-                <img class="live-cam" src="https://picsum.photos" alt="Main Lodge">
+                <img class="live-cam" src="https://youtube.com" alt="Main Lodge">
             </div>
         </div>
 
@@ -101,7 +101,7 @@
         <div class="cam-card">
             <div class="cam-title">Woolly's Adventure Summit</div>
             <div class="video-container">
-                <img class="live-cam" src="https://picsum.photos" alt="Summit">
+                <img class="live-cam" src="https://youtube.com" alt="Summit">
             </div>
         </div>
 
@@ -109,7 +109,7 @@
         <div class="cam-card">
             <div class="cam-title">McCoy Station</div>
             <div class="video-container">
-                <img class="live-cam" src="https://picsum.photos" alt="McCoy Station">
+                <img class="live-cam" src="https://youtube.com" alt="McCoy Station">
             </div>
         </div>
 
@@ -117,7 +117,7 @@
         <div class="cam-card">
             <div class="cam-title">Chair 14 Outpost</div>
             <div class="video-container">
-                <img class="live-cam" src="https://picsum.photos" alt="Chair 14">
+                <img class="live-cam" src="https://youtube.com" alt="Chair 14">
             </div>
         </div>
 
@@ -125,7 +125,7 @@
         <div class="cam-card">
             <div class="cam-title">Summit</div>
             <div class="video-container">
-                <img class="live-cam" src="https://picsum.photos" alt="Summit">
+                <img class="live-cam" src="https://youtube.com" alt="Summit">
             </div>
         </div>
 
@@ -133,7 +133,7 @@
         <div class="cam-card">
             <div class="cam-title">Eagle Lodge</div>
             <div class="video-container">
-                <img class="live-cam" src="https://picsum.photos" alt="Eagle Lodge">
+                <img class="live-cam" src="https://youtube.com" alt="Eagle Lodge">
             </div>
         </div>
 
@@ -141,7 +141,7 @@
         <div class="cam-card">
             <div class="cam-title">Tamarack</div>
             <div class="video-container">
-                <img class="live-cam" src="https://picsum.photos" alt="Tamarack">
+                <img class="live-cam" src="https://youtube.com" alt="Tamarack">
             </div>
         </div>
 
@@ -149,7 +149,7 @@
         <div class="cam-card">
             <div class="cam-title">The Village</div>
             <div class="video-container">
-                <img class="live-cam" src="https://picsum.photos" alt="The Village">
+                <img class="live-cam" src="https://youtube.com" alt="The Village">
             </div>
         </div>
 
@@ -157,21 +157,21 @@
         <div class="cam-card">
             <div class="cam-title">Canyon Lodge</div>
             <div class="video-container">
-                <img class="live-cam" src="https://picsum.photos" alt="Canyon Lodge">
+                <img class="live-cam" src="https://youtube.com" alt="Canyon Lodge">
             </div>
         </div>
     </div>
 
     <script>
         // Automatic Image Refresher
-        // Appends a tiny unique timestamp to the images every 15 seconds to pull fresh snapshots
+        // Appends a tiny unique timestamp to the images every 30 seconds to pull fresh snapshots
         setInterval(function() {
             const images = document.querySelectorAll('.live-cam');
             images.forEach(img => {
-                const baseSrc = img.src.split('?')[0];
-                img.src = baseSrc + '?t=' + new Date().getTime();
+                const currentSrc = img.src.split('?')[0];
+                img.src = currentSrc + '?t=' + new Date().getTime();
             });
-        }, 15000); 
+        }, 30000); 
     </script>
 
 </body>
