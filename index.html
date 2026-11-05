@@ -14,19 +14,13 @@
         }
         h1 { 
             text-align: center; 
-            margin-bottom: 10px;
+            margin-bottom: 40px;
             font-size: 2.5rem;
             letter-spacing: 1px;
             text-transform: uppercase;
         }
-        .subtitle {
-            text-align: center;
-            color: #888;
-            margin-bottom: 40px;
-            font-size: 1rem;
-        }
         
-        /* 1 column on mobile, 2 massive columns on desktop monitors */
+        /* 1 column on mobile, 2 massive columns on large monitors */
         .cam-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -56,21 +50,20 @@
             border-bottom: 1px solid #2d2d2d;
         }
         
-        /* Perfect 16:9 widescreen layout frames */
+        /* Perfect widescreen aspect ratio math */
         .video-container {
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%; 
+            padding-bottom: 56.25%; /* 16:9 Ratio */
             height: 0;
             background: #000;
         }
-        .video-container img {
+        .video-container iframe {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
             border: 0;
         }
     </style>
@@ -78,101 +71,88 @@
 <body>
 
     <h1>Mountain Live Cams</h1>
-    <div class="subtitle">Feeds automatically refresh with live data every 10 seconds</div>
 
     <div class="cam-grid">
-        <!-- Card 1 -->
+        <!-- Feed 1 -->
         <div class="cam-card">
             <div class="cam-title">June Patrol</div>
             <div class="video-container">
-                <img class="live-cam" src="https://unsplash.com" alt="June Patrol">
+                <iframe src="https://youtube.com" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
 
-        <!-- Card 2 -->
+        <!-- Feed 2 -->
         <div class="cam-card">
             <div class="cam-title">Main Lodge Woolly Cam</div>
             <div class="video-container">
-                <img class="live-cam" src="https://unsplash.com" alt="Main Lodge">
+                <iframe src="https://youtube.com" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
 
-        <!-- Card 3 -->
+        <!-- Feed 3 -->
         <div class="cam-card">
             <div class="cam-title">Woolly's Adventure Summit</div>
             <div class="video-container">
-                <img class="live-cam" src="https://unsplash.com" alt="Summit">
+                <iframe src="https://youtube.com" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
 
-        <!-- Card 4 -->
+        <!-- Feed 4 -->
         <div class="cam-card">
             <div class="cam-title">McCoy Station</div>
             <div class="video-container">
-                <img class="live-cam" src="https://unsplash.com" alt="McCoy Station">
+                <iframe src="https://youtube.com" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
 
-        <!-- Card 5 -->
+        <!-- Feed 5 -->
         <div class="cam-card">
             <div class="cam-title">Chair 14 Outpost</div>
             <div class="video-container">
-                <img class="live-cam" src="https://unsplash.com" alt="Chair 14">
+                <iframe src="https://youtube.com" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
 
-        <!-- Card 6 -->
+        <!-- Feed 6 -->
         <div class="cam-card">
             <div class="cam-title">Summit</div>
             <div class="video-container">
-                <img class="live-cam" src="https://unsplash.com" alt="Summit">
+                <iframe src="https://youtube.com" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
 
-        <!-- Card 7 -->
+        <!-- Feed 7 -->
         <div class="cam-card">
             <div class="cam-title">Eagle Lodge</div>
             <div class="video-container">
-                <img class="live-cam" src="https://unsplash.com" alt="Eagle Lodge">
+                <iframe src="https://youtube.com" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
 
-        <!-- Card 8 -->
+        <!-- Feed 8 -->
         <div class="cam-card">
             <div class="cam-title">Tamarack</div>
             <div class="video-container">
-                <img class="live-cam" src="https://unsplash.com" alt="Tamarack">
+                <iframe src="https://youtube.com" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
 
-        <!-- Card 9 -->
+        <!-- Feed 9 -->
         <div class="cam-card">
             <div class="cam-title">The Village</div>
             <div class="video-container">
-                <img class="live-cam" src="https://unsplash.com" alt="The Village">
+                <iframe src="https://youtube.com" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
 
-        <!-- Card 10 -->
+        <!-- Feed 10 -->
         <div class="cam-card">
             <div class="cam-title">Canyon Lodge</div>
             <div class="video-container">
-                <img class="live-cam" src="https://unsplash.com" alt="Canyon Lodge">
+                <iframe src="https://youtube.com" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
     </div>
-
-    <script>
-        // Background automation script
-        // Forces images to refresh from source files every 10 seconds without resetting your webpage history
-        setInterval(function() {
-            const images = document.querySelectorAll('.live-cam');
-            images.forEach(img => {
-                const baseSrc = img.src.split('?')[0];
-                img.src = baseSrc + '?t=' + new Date().getTime();
-            });
-        }, 10000); // 10000 milliseconds = 10 seconds
-    </script>
 
 </body>
 </html>
