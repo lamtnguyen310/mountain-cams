@@ -14,19 +14,13 @@
         }
         h1 { 
             text-align: center; 
-            margin-bottom: 10px;
+            margin-bottom: 40px;
             font-size: 2.5rem;
             letter-spacing: 1px;
             text-transform: uppercase;
         }
-        .subtitle {
-            text-align: center;
-            color: #888;
-            margin-bottom: 40px;
-            font-size: 1rem;
-        }
         
-        /* Layout Grid: 1 column on mobile, 2 giant columns on desktop screens */
+        /* Layout Grid: 1 column on mobile, 2 massive columns on large monitors */
         .cam-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -40,7 +34,7 @@
             }
         }
         
-        /* Camera Card Framing */
+        /* Individual Camera Card Styling */
         .cam-card {
             background: #1e1e1e;
             border-radius: 12px;
@@ -56,122 +50,136 @@
             border-bottom: 1px solid #2d2d2d;
         }
         
-        /* Perfect 16:9 Aspect Ratio Frame Container */
+        /* Perfect widescreen aspect ratio layout viewport */
         .video-container {
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%; 
+            padding-bottom: 56.25%; /* 16:9 Ratio */
             height: 0;
             background: #252525;
         }
-        .video-container img {
+        .video-container canvas {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            border: 0;
         }
     </style>
 </head>
 <body>
 
     <h1>Mountain Live Cams</h1>
-    <div class="subtitle">Feeds automatically update every 30 seconds</div>
 
     <div class="cam-grid">
-        <!-- Feed 1 -->
+        <!-- Card 1 -->
         <div class="cam-card">
             <div class="cam-title">June Patrol</div>
             <div class="video-container">
-                <img class="live-cam" src="https://youtube.com" alt="June Patrol">
+                <canvas class="placeholder-view"></canvas>
             </div>
         </div>
 
-        <!-- Feed 2 -->
+        <!-- Card 2 -->
         <div class="cam-card">
             <div class="cam-title">Main Lodge Woolly Cam</div>
             <div class="video-container">
-                <img class="live-cam" src="https://youtube.com" alt="Main Lodge">
+                <canvas class="placeholder-view"></canvas>
             </div>
         </div>
 
-        <!-- Feed 3 -->
+        <!-- Card 3 -->
         <div class="cam-card">
             <div class="cam-title">Woolly's Adventure Summit</div>
             <div class="video-container">
-                <img class="live-cam" src="https://youtube.com" alt="Summit">
+                <canvas class="placeholder-view"></canvas>
             </div>
         </div>
 
-        <!-- Feed 4 -->
+        <!-- Card 4 -->
         <div class="cam-card">
             <div class="cam-title">McCoy Station</div>
             <div class="video-container">
-                <img class="live-cam" src="https://youtube.com" alt="McCoy Station">
+                <canvas class="placeholder-view"></canvas>
             </div>
         </div>
 
-        <!-- Feed 5 -->
+        <!-- Card 5 -->
         <div class="cam-card">
             <div class="cam-title">Chair 14 Outpost</div>
             <div class="video-container">
-                <img class="live-cam" src="https://youtube.com" alt="Chair 14">
+                <canvas class="placeholder-view"></canvas>
             </div>
         </div>
 
-        <!-- Feed 6 -->
+        <!-- Card 6 -->
         <div class="cam-card">
             <div class="cam-title">Summit</div>
             <div class="video-container">
-                <img class="live-cam" src="https://youtube.com" alt="Summit">
+                <canvas class="placeholder-view"></canvas>
             </div>
         </div>
 
-        <!-- Feed 7 -->
+        <!-- Card 7 -->
         <div class="cam-card">
             <div class="cam-title">Eagle Lodge</div>
             <div class="video-container">
-                <img class="live-cam" src="https://youtube.com" alt="Eagle Lodge">
+                <canvas class="placeholder-view"></canvas>
             </div>
         </div>
 
-        <!-- Feed 8 -->
+        <!-- Card 8 -->
         <div class="cam-card">
             <div class="cam-title">Tamarack</div>
             <div class="video-container">
-                <img class="live-cam" src="https://youtube.com" alt="Tamarack">
+                <canvas class="placeholder-view"></canvas>
             </div>
         </div>
 
-        <!-- Feed 9 -->
+        <!-- Card 9 -->
         <div class="cam-card">
             <div class="cam-title">The Village</div>
             <div class="video-container">
-                <img class="live-cam" src="https://youtube.com" alt="The Village">
+                <canvas class="placeholder-view"></canvas>
             </div>
         </div>
 
-        <!-- Feed 10 -->
+        <!-- Card 10 -->
         <div class="cam-card">
             <div class="cam-title">Canyon Lodge</div>
             <div class="video-container">
-                <img class="live-cam" src="https://youtube.com" alt="Canyon Lodge">
+                <canvas class="placeholder-view"></canvas>
             </div>
         </div>
     </div>
 
     <script>
-        // Automatic Image Refresher
-        // Appends a tiny unique timestamp to the images every 30 seconds to pull fresh snapshots
-        setInterval(function() {
-            const images = document.querySelectorAll('.live-cam');
-            images.forEach(img => {
-                const currentSrc = img.src.split('?')[0];
-                img.src = currentSrc + '?t=' + new Date().getTime();
-            });
-        }, 30000); 
+        // Native rendering engine
+        // Generates crisp geometric design grids directly inside the browser window
+        document.querySelectorAll('.placeholder-view').forEach((canvas, index) => {
+            canvas.width = 640;
+            canvas.height = 360;
+            const ctx = canvas.getContext('2d');
+            
+            // Draw clean background block
+            ctx.fillStyle = '#1f2937';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Render design framework details
+            ctx.strokeStyle = '#374151';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(0, 0); ctx.lineTo(canvas.width, canvas.height);
+            ctx.moveTo(canvas.width, 0); ctx.lineTo(0, canvas.height);
+            ctx.stroke();
+            
+            // Add view indicator text
+            ctx.fillStyle = '#9ca3af';
+            ctx.font = 'bold 24px sans-serif';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('CAM FEED VIEWPORT ' + (index + 1), canvas.width / 2, canvas.height / 2);
+        });
     </script>
 
 </body>
