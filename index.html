@@ -19,8 +19,6 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-        
-        /* 1 column on mobile, 2 giant columns on desktop screens */
         .cam-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -33,8 +31,6 @@
                 grid-template-columns: repeat(2, 1fr); 
             }
         }
-        
-        /* Individual Camera Card Styling */
         .cam-card {
             background: #1e1e1e;
             border-radius: 12px;
@@ -49,110 +45,71 @@
             background: #1a1a1a;
             border-bottom: 1px solid #2d2d2d;
         }
-        
-        /* Perfect widescreen aspect ratio display windows */
         .video-container {
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%; /* 16:9 Widescreen Ratio */
+            padding-bottom: 56.25%; /* 16:9 Widescreen */
             height: 0;
             background: #000;
         }
-        .video-container iframe {
+        .video-container div {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            border: 0;
         }
     </style>
+    <!-- Load the official YouTube IFrame Player API securely -->
+    <script src="https://youtube.com"></script>
 </head>
 <body>
 
     <h1>Mountain Live Cams</h1>
 
     <div class="cam-grid">
-        <!-- Feed 1 -->
-        <div class="cam-card">
-            <div class="cam-title">June Patrol</div>
-            <div class="video-container">
-                <iframe src="https://youtube-nocookie.com" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-        </div>
-
-        <!-- Feed 2 -->
-        <div class="cam-card">
-            <div class="cam-title">Main Lodge Woolly Cam</div>
-            <div class="video-container">
-                <iframe src="https://youtube-nocookie.com" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-        </div>
-
-        <!-- Feed 3 -->
-        <div class="cam-card">
-            <div class="cam-title">Woolly's Adventure Summit</div>
-            <div class="video-container">
-                <iframe src="https://youtube-nocookie.com" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-        </div>
-
-        <!-- Feed 4 -->
-        <div class="cam-card">
-            <div class="cam-title">McCoy Station</div>
-            <div class="video-container">
-                <iframe src="https://youtube-nocookie.com" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-        </div>
-
-        <!-- Feed 5 -->
-        <div class="cam-card">
-            <div class="cam-title">Chair 14 Outpost</div>
-            <div class="video-container">
-                <iframe src="https://youtube-nocookie.com" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-        </div>
-
-        <!-- Feed 6 -->
-        <div class="cam-card">
-            <div class="cam-title">Summit</div>
-            <div class="video-container">
-                <iframe src="https://youtube-nocookie.com" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-        </div>
-
-        <!-- Feed 7 -->
-        <div class="cam-card">
-            <div class="cam-title">Eagle Lodge</div>
-            <div class="video-container">
-                <iframe src="https://youtube-nocookie.com" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-        </div>
-
-        <!-- Feed 8 -->
-        <div class="cam-card">
-            <div class="cam-title">Tamarack</div>
-            <div class="video-container">
-                <iframe src="https://youtube-nocookie.com" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-        </div>
-
-        <!-- Feed 9 -->
-        <div class="cam-card">
-            <div class="cam-title">The Village</div>
-            <div class="video-container">
-                <iframe src="https://youtube-nocookie.com" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-        </div>
-
-        <!-- Feed 10 -->
-        <div class="cam-card">
-            <div class="cam-title">Canyon Lodge</div>
-            <div class="video-container">
-                <iframe src="https://youtube-nocookie.com" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-        </div>
+        <div class="cam-card"><div class="cam-title">June Patrol</div><div class="video-container"><div id="player1"></div></div></div>
+        <div class="cam-card"><div class="cam-title">Main Lodge Woolly Cam</div><div class="video-container"><div id="player2"></div></div></div>
+        <div class="cam-card"><div class="cam-title">Woolly's Adventure Summit</div><div class="video-container"><div id="player3"></div></div></div>
+        <div class="cam-card"><div class="cam-title">McCoy Station</div><div class="video-container"><div id="player4"></div></div></div>
+        <div class="cam-card"><div class="cam-title">Chair 14 Outpost</div><div class="video-container"><div id="player5"></div></div></div>
+        <div class="cam-card"><div class="cam-title">Summit</div><div class="video-container"><div id="player6"></div></div></div>
+        <div class="cam-card"><div class="cam-title">Eagle Lodge</div><div class="video-container"><div id="player7"></div></div></div>
+        <div class="cam-card"><div class="cam-title">Tamarack</div><div class="video-container"><div id="player8"></div></div></div>
+        <div class="cam-card"><div class="cam-title">The Village</div><div class="video-container"><div id="player9"></div></div></div>
+        <div class="cam-card"><div class="cam-title">Canyon Lodge</div><div class="video-container"><div id="player10"></div></div></div>
     </div>
+
+    <script>
+        // The API calls this function automatically once it securely connects
+        function onYouTubeIframeAPIReady() {
+            const streams = [
+                { id: 'player1', videoId: '-U--7tKsSQU' },
+                { id: 'player2', videoId: 'AXyxIFY3JaA' },
+                { id: 'player3', videoId: 'ELdPHcv-2vI' },
+                { id: 'player4', videoId: 'jFK8bVYad0M' },
+                { id: 'player5', videoId: 'xaf6OzA-i6M' },
+                { id: 'player6', videoId: 'awxz_oIlJE0' },
+                { id: 'player7', videoId: 'BH-9QONvk1A' },
+                { id: 'player8', videoId: 's_lziIKyUT4' },
+                { id: 'player9', videoId: 'MwHWDokyUhw' },
+                { id: 'player10', videoId: '9--ZgYEZBhk' }
+            ];
+
+            streams.forEach(stream => {
+                new YT.Player(stream.id, {
+                    videoId: stream.videoId,
+                    playerVars: {
+                        'autoplay': 1,
+                        'mute': 1,
+                        'playsinline': 1,
+                        'rel': 0,
+                        'origin': window.location.origin
+                    }
+                });
+            });
+        }
+    </script>
 
 </body>
 </html>
