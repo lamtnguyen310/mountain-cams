@@ -20,7 +20,7 @@
             letter-spacing: 1px;
         }
         
-        /* 1 column on mobile, 2 giant columns on desktop monitors */
+        /* 1 column on mobile, 2 giant columns on desktop screens */
         .cam-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -50,20 +50,28 @@
             border-bottom: 1px solid #2d2d2d;
         }
         
-        /* Perfect widescreen aspect ratio display windows */
+        /* Perfect widescreen aspect ratio display windows using pure CSS gradients */
         .video-container {
             position: relative;
             width: 100%;
             padding-bottom: 56.25%; /* 16:9 Widescreen Ratio */
             height: 0;
-            background: #000;
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6); /* Deep blue stylized backdrop */
         }
-        .video-container canvas {
+        .video-placeholder {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
     </style>
 </head>
@@ -72,64 +80,17 @@
     <h1>Mountain Live Cams</h1>
 
     <div class="cam-grid">
-        <div class="cam-card"><div class="cam-title">June Patrol</div><div class="video-container"><canvas class="live-render"></canvas></div></div>
-        <div class="cam-card"><div class="cam-title">Main Lodge Woolly Cam</div><div class="video-container"><canvas class="live-render"></canvas></div></div>
-        <div class="cam-card"><div class="cam-title">Woolly's Adventure Summit</div><div class="video-container"><canvas class="live-render"></canvas></div></div>
-        <div class="cam-card"><div class="cam-title">McCoy Station</div><div class="video-container"><canvas class="live-render"></canvas></div></div>
-        <div class="cam-card"><div class="cam-title">Chair 14 Outpost</div><div class="video-container"><canvas class="live-render"></canvas></div></div>
-        <div class="cam-card"><div class="cam-title">Summit</div><div class="video-container"><canvas class="live-render"></canvas></div></div>
-        <div class="cam-card"><div class="cam-title">Eagle Lodge</div><div class="video-container"><canvas class="live-render"></canvas></div></div>
-        <div class="cam-card"><div class="cam-title">Tamarack</div><div class="video-container"><canvas class="live-render"></canvas></div></div>
-        <div class="cam-card"><div class="cam-title">The Village</div><div class="video-container"><canvas class="live-render"></canvas></div></div>
-        <div class="cam-card"><div class="cam-title">Canyon Lodge</div><div class="video-container"><canvas class="live-render"></canvas></div></div>
+        <div class="cam-card"><div class="cam-title">June Patrol</div><div class="video-container"><div class="video-placeholder">CAM FEED ONLINE</div></div></div>
+        <div class="cam-card"><div class="cam-title">Main Lodge Woolly Cam</div><div class="video-container"><div class="video-placeholder">CAM FEED ONLINE</div></div></div>
+        <div class="cam-card"><div class="cam-title">Woolly's Adventure Summit</div><div class="video-container"><div class="video-placeholder">CAM FEED ONLINE</div></div></div>
+        <div class="cam-card"><div class="cam-title">McCoy Station</div><div class="video-container"><div class="video-placeholder">CAM FEED ONLINE</div></div></div>
+        <div class="cam-card"><div class="cam-title">Chair 14 Outpost</div><div class="video-container"><div class="video-placeholder">CAM FEED ONLINE</div></div></div>
+        <div class="cam-card"><div class="cam-title">Summit</div><div class="video-container"><div class="video-placeholder">CAM FEED ONLINE</div></div></div>
+        <div class="cam-card"><div class="cam-title">Eagle Lodge</div><div class="video-container"><div class="video-placeholder">CAM FEED ONLINE</div></div></div>
+        <div class="cam-card"><div class="cam-title">Tamarack</div><div class="video-container"><div class="video-placeholder">CAM FEED ONLINE</div></div></div>
+        <div class="cam-card"><div class="cam-title">The Village</div><div class="video-container"><div class="video-placeholder">CAM FEED ONLINE</div></div></div>
+        <div class="cam-card"><div class="cam-title">Canyon Lodge</div><div class="video-container"><div class="video-placeholder">CAM FEED ONLINE</div></div></div>
     </div>
-
-    <script>
-        // Native Real-Time Animation Engine
-        // Generates fluid, moving geometric loops directly on your graphics card
-        const canvases = document.querySelectorAll('.live-render');
-        
-        function animate() {
-            const time = Date.now() * 0.002;
-            
-            canvases.forEach((canvas, index) => {
-                // Ensure correct widescreen pixel scaling
-                if (canvas.width !== canvas.clientWidth) {
-                    canvas.width = canvas.clientWidth;
-                    canvas.height = canvas.clientHeight;
-                }
-                
-                const ctx = canvas.getContext('2d');
-                const w = canvas.width;
-                const h = canvas.height;
-                
-                // Clear and set background
-                ctx.fillStyle = '#111827';
-                ctx.fillRect(0, 0, w, h);
-                
-                // Generate unique moving sine wave loops per block
-                ctx.strokeStyle = `hsl(${(index * 36) + (time * 10)}, 70%, 60%)`;
-                ctx.lineWidth = 4;
-                ctx.beginPath();
-                
-                for (let x = 0; x < w; x++) {
-                    const y = h / 2 + Math.sin(x * 0.01 + time + index) * (h * 0.25);
-                    if (x === 0) ctx.moveTo(x, y);
-                    else ctx.lineTo(x, y);
-                }
-                ctx.stroke();
-                
-                // Overlay clean HUD grid line details
-                ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
-                ctx.lineWidth = 1;
-                ctx.strokeRect(20, 20, w - 40, h - 40);
-            });
-            
-            requestAnimationFrame(animate);
-        }
-        
-        animate();
-    </script>
 
 </body>
 </html>
