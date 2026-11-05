@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mountain Live Cams</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 { 
+            text-align: center; 
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        /* 1 column on mobile, 2 giant columns on desktop screens */
+        .cam-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            max-width: 1700px; /* Extends wide for massive feeds */
+            margin: 0 auto 60px auto;
+        }
+        @media (min-width: 1024px) {
+            .cam-grid {
+                grid-template-columns: repeat(2, 1fr); 
+            }
+        }
+        
+        /* Individual Camera Card Styling */
+        .cam-card {
+            background: #1e1e1e;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+            border: 1px solid #2d2d2d;
+        }
+        .cam-title {
+            padding: 18px 20px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            background: #1a1a1a;
+            border-bottom: 1px solid #2d2d2d;
+        }
+        
+        /* Perfect widescreen aspect ratio math */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Ratio */
+            height: 0;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Mountain Live Cams</h1>
+
+    <div class="cam-grid">
+        <!-- Feed 1 -->
+        <div class="cam-card">
+            <div class="cam-title">June Patrol</div>
+            <div class="video-container">
+                <iframe src="https://youtube.com" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <!-- Feed 2 -->
+        <div class="cam-card">
+            <div class="cam-title">Main Lodge Woolly Cam</div>
+            <div class="video-container">
+                <iframe src="https://youtube.com" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <!-- Feed 3 -->
+        <div class="cam-card">
+            <div class="cam-title">Woolly's Adventure Summit</div>
+            <div class="video-container">
+                <iframe src="https://youtube.com" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <!-- Feed 4 -->
+        <div class="cam-card">
+            <div class="cam-title">McCoy Station</div>
+            <div class="video-container">
+                <iframe src="https://youtube.com" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <!-- Feed 5 -->
+        <div class="cam-card">
+            <div class="cam-title">Chair 14 Outpost</div>
+            <div class="video-container">
+                <iframe src="https://youtube.com" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <!-- Feed 6 -->
+        <div class="cam-card">
+            <div class="cam-title">Summit</div>
+            <div class="video-container">
+                <iframe src="https://youtube.com" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <!-- Feed 7 -->
+        <div class="cam-card">
+            <div class="cam-title">Eagle Lodge</div>
+            <div class="video-container">
+                <iframe src="https://youtube.com" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <!-- Feed 8 -->
+        <div class="cam-card">
+            <div class="cam-title">Tamarack</div>
+            <div class="video-container">
+                <iframe src="https://youtube.com" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <!-- Feed 9 -->
+        <div class="cam-card">
+            <div class="cam-title">The Village</div>
+            <div class="video-container">
+                <iframe src="https://youtube.com" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <!-- Feed 10 -->
+        <div class="cam-card">
+            <div class="cam-title">Canyon Lodge</div>
+            <div class="video-container">
+                <iframe src="https://youtube.com" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
