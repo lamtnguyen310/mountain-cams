@@ -14,18 +14,24 @@
         }
         h1 { 
             text-align: center; 
-            margin-bottom: 40px;
+            margin-bottom: 10px;
             font-size: 2.5rem;
             letter-spacing: 1px;
             text-transform: uppercase;
         }
+        .subtitle {
+            text-align: center;
+            color: #888;
+            margin-bottom: 40px;
+            font-size: 1rem;
+        }
         
-        /* 1 column on mobile, 2 giant columns on desktop screens */
+        /* Layout Grid: 1 column on mobile, 2 giant columns on desktop screens */
         .cam-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 40px;
-            max-width: 1700px; 
+            max-width: 1700px;
             margin: 0 auto 60px auto;
         }
         @media (min-width: 1024px) {
@@ -34,7 +40,7 @@
             }
         }
         
-        /* Individual Camera Card Styling */
+        /* Camera Card Framing */
         .cam-card {
             background: #1e1e1e;
             border-radius: 12px;
@@ -50,20 +56,21 @@
             border-bottom: 1px solid #2d2d2d;
         }
         
-        /* Perfect widescreen aspect ratio layout */
+        /* 16:9 Aspect Ratio Frame Container */
         .video-container {
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%; /* 16:9 Ratio */
+            padding-bottom: 56.25%; 
             height: 0;
-            background: #000;
+            background: #252525;
         }
-        .video-container iframe {
+        .video-container img {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            object-fit: cover;
             border: 0;
         }
     </style>
@@ -71,13 +78,14 @@
 <body>
 
     <h1>Mountain Live Cams</h1>
+    <div class="subtitle">Feeds automatically update every 15 seconds</div>
 
     <div class="cam-grid">
         <!-- Feed 1 -->
         <div class="cam-card">
             <div class="cam-title">June Patrol</div>
             <div class="video-container">
-                <iframe src="https://youtube.com" sandbox="allow-scripts allow-same-origin allow-forms allow-presentation" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <img class="live-cam" src="https://picsum.photos" alt="June Patrol">
             </div>
         </div>
 
@@ -85,7 +93,7 @@
         <div class="cam-card">
             <div class="cam-title">Main Lodge Woolly Cam</div>
             <div class="video-container">
-                <iframe src="https://youtube.com" sandbox="allow-scripts allow-same-origin allow-forms allow-presentation" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <img class="live-cam" src="https://picsum.photos" alt="Main Lodge">
             </div>
         </div>
 
@@ -93,7 +101,7 @@
         <div class="cam-card">
             <div class="cam-title">Woolly's Adventure Summit</div>
             <div class="video-container">
-                <iframe src="https://youtube.com" sandbox="allow-scripts allow-same-origin allow-forms allow-presentation" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <img class="live-cam" src="https://picsum.photos" alt="Summit">
             </div>
         </div>
 
@@ -101,7 +109,7 @@
         <div class="cam-card">
             <div class="cam-title">McCoy Station</div>
             <div class="video-container">
-                <iframe src="https://youtube.com" sandbox="allow-scripts allow-same-origin allow-forms allow-presentation" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <img class="live-cam" src="https://picsum.photos" alt="McCoy Station">
             </div>
         </div>
 
@@ -109,7 +117,7 @@
         <div class="cam-card">
             <div class="cam-title">Chair 14 Outpost</div>
             <div class="video-container">
-                <iframe src="https://youtube.com" sandbox="allow-scripts allow-same-origin allow-forms allow-presentation" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <img class="live-cam" src="https://picsum.photos" alt="Chair 14">
             </div>
         </div>
 
@@ -117,7 +125,7 @@
         <div class="cam-card">
             <div class="cam-title">Summit</div>
             <div class="video-container">
-                <iframe src="https://youtube.com" sandbox="allow-scripts allow-same-origin allow-forms allow-presentation" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <img class="live-cam" src="https://picsum.photos" alt="Summit">
             </div>
         </div>
 
@@ -125,7 +133,7 @@
         <div class="cam-card">
             <div class="cam-title">Eagle Lodge</div>
             <div class="video-container">
-                <iframe src="https://youtube.com" sandbox="allow-scripts allow-same-origin allow-forms allow-presentation" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <img class="live-cam" src="https://picsum.photos" alt="Eagle Lodge">
             </div>
         </div>
 
@@ -133,7 +141,7 @@
         <div class="cam-card">
             <div class="cam-title">Tamarack</div>
             <div class="video-container">
-                <iframe src="https://youtube.com" sandbox="allow-scripts allow-same-origin allow-forms allow-presentation" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <img class="live-cam" src="https://picsum.photos" alt="Tamarack">
             </div>
         </div>
 
@@ -141,7 +149,7 @@
         <div class="cam-card">
             <div class="cam-title">The Village</div>
             <div class="video-container">
-                <iframe src="https://youtube.com" sandbox="allow-scripts allow-same-origin allow-forms allow-presentation" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <img class="live-cam" src="https://picsum.photos" alt="The Village">
             </div>
         </div>
 
@@ -149,10 +157,22 @@
         <div class="cam-card">
             <div class="cam-title">Canyon Lodge</div>
             <div class="video-container">
-                <iframe src="https://youtube.com" sandbox="allow-scripts allow-same-origin allow-forms allow-presentation" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <img class="live-cam" src="https://picsum.photos" alt="Canyon Lodge">
             </div>
         </div>
     </div>
+
+    <script>
+        // Automatic Image Refresher
+        // Appends a tiny unique timestamp to the images every 15 seconds to pull fresh snapshots
+        setInterval(function() {
+            const images = document.querySelectorAll('.live-cam');
+            images.forEach(img => {
+                const baseSrc = img.src.split('?')[0];
+                img.src = baseSrc + '?t=' + new Date().getTime();
+            });
+        }, 15000); 
+    </script>
 
 </body>
 </html>
